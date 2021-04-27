@@ -3,7 +3,6 @@
 
 from button import Button
 from const import FPS, WIDTH, HEIGHT
-import size_config
 from game import main
 import pygame
 import os
