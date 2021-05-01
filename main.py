@@ -24,6 +24,7 @@ clock = pygame.time.Clock()
 pygame.mouse.set_cursor(*pygame.cursors.tri_left)
 
 f1 = pygame.font.Font(None, int(60 * hc))  # TODO придумать как изменять размер шрифта
+# еще exe не может шрифт загрузить почему то
 f1.set_italic(True)
 f2 = pygame.font.Font(None, 32)
 # screen.fill(color)
@@ -38,8 +39,6 @@ start_game_btn = Button((100 * wc, 150 * hc), text1, text_color)
 # pygame.mixer.music.set_volume(0.5)
 # if not audio_turn_off:
 #    pygame.mixer.music.play(-1)
-
-menu = True
 
 # если надо до цикла отобразить объекты на экране
 screen.fill('black')
@@ -57,10 +56,7 @@ if __name__ == '__main__':
                 quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    if not menu:
-                        menu = True
-                    else:
-                        quit()
+                    quit()
 
         # --------
         # изменение объектов и многое др.
@@ -80,7 +76,7 @@ if __name__ == '__main__':
         if pressed[0]:  # обработка нажатий левой кнопки мыши
             x1, y1 = pygame.mouse.get_pos()
             if start_game_btn.mouse_check((x1, y1)):
-                main(wc, hc)
+                main(screen, wc, hc)
 
         # обновление экрана
         pygame.display.update()
